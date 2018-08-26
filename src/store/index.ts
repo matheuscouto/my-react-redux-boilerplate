@@ -1,5 +1,5 @@
-import {  Action, applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import {  ActionsObservable, combineEpics, createEpicMiddleware, StateObservable } from 'redux-observable';
+import { Action, applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { ActionsObservable, combineEpics, createEpicMiddleware, StateObservable } from 'redux-observable';
 import { Observable } from 'rxjs';
 
 // REDUCERS AND EPICS EXPORTS
