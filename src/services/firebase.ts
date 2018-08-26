@@ -1,7 +1,7 @@
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
-var config = {
+const config = {
 	apiKey: "AIzaSyCe9XJ---EXAMPLE---SQFBe20s",
 	authDomain: "PROJECT-NAME.firebaseapp.com",
 	databaseURL: "https://PROJECT-NAME.firebaseio.com",
@@ -30,5 +30,5 @@ export const authStateObservable: Observable<{ uid: string } | null> = new Obser
 
 export const updateUserPassword = async (newPassword:string):Promise<void> => {
 	const user = firebase.auth().currentUser
-	if(user) await user.updatePassword(newPassword)
+	if(user) { await user.updatePassword(newPassword) }
 }
