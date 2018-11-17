@@ -4,17 +4,11 @@ import { Observable } from 'rxjs';
 
 // REDUCERS AND EPICS EXPORTS
 
-import appStateReducer, {
-	epics as appStateEpics,
-	init,
-	IState as IAppStateState,
-} from './app/state';
+import appStateReducer, { epics as appStateEpics, init, IState as IAppStateState } from './app/state';
 
 // STORE INTERFACE
 
-export interface IRootState {
-	appState: IAppStateState,
-}
+export interface IRootState { appState: IAppStateState }
 
 // COMBINED REDUCERS
 
@@ -28,12 +22,8 @@ const rootEpic = combineEpics(
 	appStateEpics,
 );
 
-
-
 export type Epic = (action$: ActionsObservable<Action<any>>, state$: StateObservable<IRootState>) => Observable<Action<any>>;
 export type Selector<Value, Props = any> = (state: IRootState, props?: Props) => Value;
-
-
 
 const epicMiddleware = createEpicMiddleware<any>();
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
