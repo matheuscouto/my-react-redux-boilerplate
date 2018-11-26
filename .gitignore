@@ -1,0 +1,32 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# lockfiles
+yarn.lock
+package-lock.json
+
+# ignore credentials
+src/config.ts
+src/config.development.ts
+src/config.staging.ts
+src/config.production.ts
+src/config.sandbox-84455.ts
