@@ -8,10 +8,15 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import store from './store'
 
+import { ThemeProvider } from './styles/styled-components';
+import theme from './styles/theme';
+
 ReactDOM.render(
 	<Provider store={store}>
     <Router>
-      <App />
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
     </Router>
 	</Provider>,
   document.getElementById('root') as HTMLElement
