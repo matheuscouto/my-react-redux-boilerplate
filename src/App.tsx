@@ -17,6 +17,8 @@ import {
   ExamplePage,
 } from './pages';
 
+import './App.less';
+
 interface IReduxStateProps {
   authStatus: AuthStatus;
 }
@@ -27,33 +29,31 @@ const stateMap = (state: IRootState): IReduxStateProps => ({
   authStatus: selectAuthStatus(state),
 });
 
-class App extends React.Component<IProps> {
-  public render() {
-    switch (this.props.authStatus) {
-      case 'pristine': return (
-        <div className="App">
-          <Spin />
-        </div>
-      );
+const App = (props: IProps) => {
+  switch (props.authStatus) {
+    case 'pristine': return (
+      <div className="App">
+        <Spin />
+      </div>
+    );
 
-      case 'authenticated': return (
-        <AppLayout>
-          <Switch >
-            <Route exact path="/" component={ExamplePage} />
-            <Redirect to="/" />
-          </Switch>
-        </AppLayout>
-      );
+    case 'authenticated': return (
+      <AppLayout>
+        <Switch >
+          <Route exact path="/" component={ExamplePage} />
+          <Redirect to="/" />
+        </Switch>
+      </AppLayout>
+    );
 
-      default: return (
-        <AppLayout>
-          <Switch>
-            <Route path="/auth" component={ExamplePage} />
-            <Redirect to="/auth" />
-          </Switch>
-        </AppLayout>
-      );
-    }
+    default: return (
+      <AppLayout>
+        <Switch>
+          <Route path="/auth" component={ExamplePage} />
+          <Redirect to="/auth" />
+        </Switch>
+      </AppLayout>
+    );
   }
 }
 

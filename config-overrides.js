@@ -8,14 +8,18 @@ module.exports = function override(config, env) {
     config,
   );
 
-  // // LESS
+  // LESS
   config = rewireLess.withLoaderOptions({
     modifyVars: {
-      '@primary-color': '#342245',
-      '@link-color': '#342245',
+      // '@primary-color': '#342245',
+      // '@link-color': '#342245',
     },
     javascriptEnabled: true,
   })(config, env);
+
+  // Styled components
+  config = injectBabelPlugin('@quickbaseoss/babel-plugin-styled-components-css-namespace', config);
+  config = injectBabelPlugin('babel-plugin-styled-components', config);
 
   // do stuff with the webpack config...
   return config;

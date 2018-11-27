@@ -8,8 +8,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 // CSS IMPORTS
-import './App.css';
-import './index.css';
+import './index.less';
 
 import store from './store'
 
