@@ -1,14 +1,12 @@
-import React, { useState, ChangeEvent } from 'react';
-import './App.css';
+import React from 'react';
+import { Route } from 'react-router-dom';
+import { ExamplePage } from './pages';
 
-function App () {
-
-  const [value, setValue] = useState('');
-  const handleSetValue = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)
+const App: React.FunctionComponent = () => {
   
   return (
-    <div className="App">
-      <input value={value} onChange={handleSetValue} />
+    <div>
+      <Route exact path='/' component={ExamplePage} />
     </div>
   );
 }
